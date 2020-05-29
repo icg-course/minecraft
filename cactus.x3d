@@ -1,0 +1,57 @@
+<scene>
+        <Group DEF="CactusBlock">            
+            <transform translation="0 0 0.4375" center="0 0 0">
+
+                <shape DEF="front">
+                  <appearance>
+                      <ImageTexture url="cactus_side.png"></ImageTexture>
+                  </appearance>
+                  <plane size="1 1"></plane>
+                </shape>
+        
+             <transform translation="0 0.5 -0.4375" rotation="1 0 0 -1.57">
+               <shape DEF="top">
+                 <appearance>
+                     <ImageTexture url="cactus_top.png"></ImageTexture>
+                 </appearance>
+                 <plane size="1 1"></plane>
+               </shape>
+             </transform>
+            
+             <transform translation="0 -0.5 -0.4375" rotation="1 0 0 1.57">
+               <shape DEF="bottom">
+                 <appearance>
+                     <ImageTexture url="cactus_bottom.png"></ImageTexture>
+                 </appearance>
+                 <plane size="1 1"></plane>
+               </shape>
+             </transform>
+            
+              <transform translation="-0.4375 0 -0.4375" rotation="0 1 0 -1.57">
+                 <shape USE="front">
+                 </shape>
+              </transform>
+
+              <transform translation="0.4375 0 -0.4375" rotation="0 1 0 1.57">
+                 <shape USE="front">
+                 </shape>
+              </transform>
+            
+              <transform translation="0 0 -0.875" rotation="0 1 0 3.14">
+                  <shape USE="front">
+                  </shape>
+              </transform>
+              
+            </transform>
+          </Group>
+          
+          <transform translation="0 1 0">
+            <group USE="CactusBlock">
+            </group>
+          </transform>
+
+          <transform translation="0 2 0">
+            <group USE="CactusBlock">
+            </group>
+          </transform>       
+</scene>

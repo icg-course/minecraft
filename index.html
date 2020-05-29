@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"></meta>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge"></meta>
+		<title>MineX3D</title>
+    <style>
+      .center {
+       width: 480px; /* Ширина элемента в пикселах */
+       margin: auto; /* Выравниваем по центру */
+      }
+      .img {
+       line-height: 145px;
+      }
+    </style>
+    <link rel="stylesheet" type="text/css" href="http://www.x3dom.org/download/dev/x3dom.css" />
+		<script type="text/javascript" src="http://www.x3dom.org/download/dev/x3dom.js"></script>
+	</head>
+       
+<body>
+
+    <h1><font size="7"><center>MineX3D</center></font></h1>
+                <p><font size="5" face="Arial">
+                <center>Minecraft-style X3D presentation</center>
+                </font></p>
+    <font size="5" face="Cambria"><center><a href="mine.html">Click here to start</a></center></font>
+        
+        <div class="center">
+        <x3d xmlns="http://www.x3dom.org/x3dom" showStat="false" showLog="false" x="0px" y="px" width="480px" height="384px" style="float: none";>
+          <scene>
+            <viewpoint position="0 2 5" orientation="1 0 0 -0.3" ></viewpoint>
+            
+        <!--Блок травы-->
+        <Group DEF="GrassBlockGroup">            
+            <transform DEF="grassBlock" rotation="0 0 0 0" center="0 0 -1">
+
+                <shape DEF="front">
+                  <appearance>
+                      <ImageTexture url="grass_side.png"></ImageTexture>
+                  </appearance>
+                  <plane></plane>
+                </shape>
+        
+             <transform translation="0 1 -1" rotation="1 0 0 -1.57">
+               <shape DEF="top">
+                 <appearance>
+                     <ImageTexture url="grass_top.png"></ImageTexture>
+                 </appearance>
+                 <plane></plane>
+               </shape>
+             </transform>
+            
+             <transform translation="0 -1 -1" rotation="1 0 0 1.57">
+               <shape DEF="bottom">
+                 <appearance>
+                     <ImageTexture url="dirt.png"></ImageTexture>
+                 </appearance>
+                 <plane></plane>
+               </shape>
+             </transform>
+            
+              <transform translation="-1 0 -1" rotation="0 1 0 -1.57">
+                 <shape USE="front">
+                 </shape>
+              </transform>
+
+              <transform translation="1 0 -1" rotation="0 1 0 1.57">
+                 <shape USE="front">
+                 </shape>
+              </transform>
+            
+              <transform translation="0 0 -2" rotation="0 1 0 3.14">
+                  <shape USE="front">
+                  </shape>
+              </transform>
+              
+            </transform>
+          </Group>
+          <!-------->
+            
+            <TimeSensor DEF="TS" cycleinterval="5" loop="True"></TimeSensor>
+            <OrientationInterpolator DEF="OrIn" key="0 0.5 1" keyValue="0 1 0 0, 0 1 0 3.14, 0 1 0 6.28">
+            </OrientationInterpolator>
+            
+            <Route fromNode="TS" fromField="fraction_changed" toNode="OrIn" toField="set_fraction"></Route>
+            <Route fromNode="OrIn" fromField="value_changed" toNode="grassBlock" toField="set_rotation"></Route>
+          </scene>
+        </x3d>
+        </div>
+       
+      <p align="left" style="text-indent:40px"><font size="6" face="Arial"><b>Controls:</b></font></p>       
+      <p align="left"> 
+          <img align="left" src="buttons.png" alt="arrows" width="220" height="440" />
+          <p class="img" align="left" style="text-indent:20px"><font size="5" face="Cambria">-  X Z axes block translation <br> </font></p>
+          <p class="img" align="left" style="text-indent:20px"><font size="5" face="Cambria">-  Y axis block translation <br> </font></p>
+          <p class="img" align="left" style="text-indent:20px"><font size="5" face="Cambria">-  Delete selected block <br> </font></p>                                                                                
+      </p>    
+</body>
+</html>

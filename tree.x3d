@@ -1,0 +1,233 @@
+<scene>
+        <Group DEF="TreeBlock">            
+            <transform translation="0 0 0.5" center="0 0 0">
+
+                <shape DEF="front">
+                  <appearance>
+                      <ImageTexture url="tree_side.png"></ImageTexture>
+                  </appearance>
+                  <plane size="1 1"></plane>
+                </shape>
+        
+             <transform translation="0 0.5 -0.5" rotation="1 0 0 -1.57">
+               <shape DEF="top">
+                 <appearance>
+                     <ImageTexture url="tree_top.png"></ImageTexture>
+                 </appearance>
+                 <plane size="1 1"></plane>
+               </shape>
+             </transform>
+            
+             <transform translation="0 -0.5 -0.5" rotation="1 0 0 1.57">
+               <shape USE="top">
+               </shape>
+             </transform>
+            
+              <transform translation="-0.5 0 -0.5" rotation="0 1 0 -1.57">
+                 <shape USE="front">
+                 </shape>
+              </transform>
+
+              <transform translation="0.5 0 -0.5" rotation="0 1 0 1.57">
+                 <shape USE="front">
+                 </shape>
+              </transform>
+            
+              <transform translation="0 0 -1" rotation="0 1 0 3.14">
+                  <shape USE="front">
+                  </shape>
+              </transform>
+              
+            </transform>
+          </Group>
+
+          <transform translation="0 1 0">
+            <group USE="TreeBlock">
+            </group>
+          </transform>
+
+          <transform translation="0 2 0">
+            <group USE="TreeBlock">
+            </group>
+          </transform>
+
+          <transform translation="0 3 0">
+            <group USE="TreeBlock">
+            </group>
+          </transform>
+
+          <transform translation="0 4 0">
+            <group USE="TreeBlock">
+            </group>
+          </transform>
+
+          <transform translation="0 5 0">
+            <group USE="TreeBlock">
+            </group>
+          </transform>
+
+          <Group DEF="3_leaf">
+            <transform translation="0 3 0.5">
+                <shape DEF="leaves">
+                  <appearance>
+                      <ImageTexture url="leaves.png"></ImageTexture>
+                  </appearance>
+                  <box size="1 1 1"></box>
+                </shape>
+             </transform>
+
+            <transform translation="1 3 0.5">
+                <shape USE="leaves">
+                </shape>
+             </transform>
+
+            <transform translation="-1 3 0.5">
+                <shape DEF="leaves">
+                  <appearance>
+                      <ImageTexture url="leaves.png"></ImageTexture>
+                  </appearance>
+                  <box size="1 1 1"></box>
+                </shape>
+             </transform>
+          </Group>
+          
+            <transform translation="0 1 0">
+                <group USE="3_leaf">
+                </group>
+            </transform>
+
+            <transform translation="0 1 1">
+                <group USE="3_leaf">
+                </group>
+            </transform>
+
+            <transform translation="0 0 1">
+                <group USE="3_leaf">
+                </group>
+            </transform>
+
+            <transform translation="0 0 -2">
+                <group USE="3_leaf">
+                </group>
+            </transform>
+
+            <transform translation="0 0 -3">
+                <group USE="3_leaf">
+                </group>
+            </transform>
+
+            <transform translation="0 1 -2">
+                <group USE="3_leaf">
+                </group>
+            </transform>
+
+            <transform translation="0 1 -3">
+                <group USE="3_leaf">
+                </group>
+            </transform>
+
+            <transform translation="1.5 0 -0.5" rotation="0 1 0 1.57">
+                <group USE="3_leaf">
+                </group>
+            </transform>
+
+            <transform translation="1.5 1 -0.5" rotation="0 1 0 1.57">
+                <group USE="3_leaf">
+                </group>
+            </transform>
+
+            <transform translation="-2.5 0 -0.5" rotation="0 1 0 1.57">
+                <group USE="3_leaf">
+                </group>
+            </transform>
+
+            <transform translation="-2.5 1 -0.5" rotation="0 1 0 1.57">
+                <group USE="3_leaf">
+                </group>
+            </transform>
+
+            <transform translation="1 3 -0.5">
+                <shape USE="leaves">
+                </shape>
+             </transform>
+
+            <transform translation="-1 3 -0.5">
+                <shape USE="leaves">
+                </shape>
+             </transform>
+             
+            <transform translation="1 4 -0.5">
+                <shape USE="leaves">
+                </shape>
+             </transform>
+
+            <transform translation="-1 4 -0.5">
+                <shape USE="leaves">
+                </shape>
+             </transform>
+
+            <transform translation="1 5 -0.5">
+                <shape USE="leaves">
+                </shape>
+             </transform>
+
+            <transform translation="-1 5 -0.5">
+                <shape USE="leaves">
+                </shape>
+             </transform>
+
+            <transform translation="1 6 -0.5">
+                <shape USE="leaves">
+                </shape>
+             </transform>
+
+            <transform translation="-1 6 -0.5">
+                <shape USE="leaves">
+                </shape>
+             </transform>
+
+            <transform translation="0 5 -1.5">
+                <shape USE="leaves">
+                </shape>
+             </transform>
+
+            <transform translation="0 5 0.5">
+                <shape USE="leaves">
+                </shape>
+             </transform>
+
+            <transform translation="0 6 -1.5">
+                <shape USE="leaves">
+                </shape>
+             </transform>
+
+            <transform translation="0 6 0.5">
+                <shape USE="leaves">
+                </shape>
+             </transform>
+
+            <transform translation="0 6 -0.5">
+                <shape USE="leaves">
+                </shape>
+             </transform>
+
+            <transform translation="-1 5 0.5">
+                <shape USE="leaves">
+                </shape>
+             </transform>
+
+            <transform translation="1 5 0.5">
+                <shape USE="leaves">
+                </shape>
+             </transform>
+
+            <transform translation="2 3 1.5">
+                <shape USE="leaves">
+                </shape>
+             </transform>
+
+            <transform translation="-2 3 -2.5">
+                <shape USE="leaves">
+                </shape>
+             </transform>
+</scene>

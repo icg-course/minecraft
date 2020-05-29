@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"></meta>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge"></meta>
+    <title>MineX3D presentation</title>
+    <style>
+    .left {
+       width: 1280px; /* Ширина элемента в пикселах */
+       margin: right; /* Выравниваем по левому краю */   
+    }
+    .back {
+       line-height: 100px;   
+    }
+    input {
+       font-size: 16px;
+    }
+    .buttons1 {
+       line-height: 55px;
+    }
+    .buttons2 {
+       line-height: 0px;
+    }
+    .buttons3 {
+       line-height: 35px;
+    }    
+    </style>
+    <link rel="stylesheet" type="text/css" href="http://www.x3dom.org/download/dev/x3dom.css" />    
+    <script type="text/javascript">
+    
+    // Задаем переменные для перемещения блока по осям
+    var vec = {
+      x: 0,
+      y: 0,
+      z: 0,
+      str: (0,0,0)
+    }
+    // Функция обнуления переменных
+    function setZero()
+    {
+      vec.x = 0;
+      vec.y = 0;
+      vec.z = 0;
+      vec.str = document.getElementById(curid).getAttribute("translation");
+    return false;
+    }
+    
+    // Переменные для создания новых ID (id0, id1, id2,...)
+    var ids = {
+      stoneIdNum: 0,
+      woodIdNum: 0,
+      cobbleIdNum: 0,
+      glassIdNum: 0,
+      dirtIdNum: 0,
+      brickIdNum: 0,
+      brownWoolIdNum: 0,
+      redWoolIdNum: 0,
+      greenWoolIdNum: 0,
+      darkGreenWoolIdNum: 0,
+      cyanWoolIdNum: 0,
+      blueWoolIdNum: 0,
+      orangeWoolIdNum: 0,
+      yellowWoolIdNum: 0,
+      pinkWoolIdNum: 0,
+      darkBlueWoolIdNum: 0,
+      lilacWoolIdNum: 0,
+      violetWoolIdNum: 0,
+      whiteWoolIdNum: 0,
+      grayWoolIdNum: 0,
+      darkGrayWoolIdNum: 0,
+      blackWoolIdNum: 0,
+      hellrockIdNum: 0,
+      gravelIdNum: 0,
+      obsidianIdNum: 0,
+      endstoneIdNum: 0,
+      treeGroupIdNum: 0,
+      cactusGroupIdNum: 0,
+      sandstoneIdNum: 0
+    }
+    var newid = "";
+    var curid = "";
+    
+    // Создание блока Stone
+    function addStone()
+    {   
+        var tr = document.createElement("Transform");
+        tr.setAttribute("translation", "0 0 0");
+        newid = "stoneTrans" + ids.stoneIdNum;
+        tr.setAttribute("id", newid);
+        tr.setAttribute("onclick", "setID(id)");
+        ids.stoneIdNum++;
+        curid = newid;
+        vec.str = "0 0 0";   
+        var sh = document.createElement("Shape");               
+                // Узел Appearance
+                var app = document.createElement("Appearance");               
+                    // Узел Material
+                    var mat = document.createElement("Material");                
+                app.appendChild(mat);               
+                // Узел ImageTexture
+                var img = document.createElement("ImageTexture");
+                img.setAttribute("url", "stone.png");
+                app.appendChild(img);  // Помещаем ImageTexture в Appearance                
+                sh.appendChild(app);   // Помещаем Appearance в Shape             
+        tr.appendChild(sh);            // Помещаем Shape в Transform
+        // Создаем куб
+        var bx = document.createElement("Box");
+        bx.setAttribute("size", "1 1 1");
+        bx.setAttribute("id", "stoneBlock");  
+        sh.appendChild(bx);            // Помещаем Box в Shape
+        
+        var sc = document.getElementById('root');
+        sc.appendChild(tr);            // Помещаем Transform в сцену
+        
+        return false;
+    }
+    
+    // Присваивание: текущий элемент = выбранный
+    function setID(id)
+    {
+      curid = id;
+      document.getElementById()
+      setZero();    // Обнуляем переменные для перемещения нового блока
+      //alert("Current position is: " + vec.str);
+    }
+        
+    // Создание блока Wood
+    function addWood()
+    {   
+        var tr = document.createElement("Transform");
+        tr.setAttribute("translation", "0 0 0");
+        tr.setAttribute("rotation", "1 0 0 1.57");
+        newid = "woodTrans" + ids.woodIdNum;
+        tr.setAttribute("id", newid);
+        tr.setAttribute("onclick", "setID(id)");
+        ids.woodIdNum++;
+        curid = newid;
+        vec.str = "0 0 0";   
+        var sh = document.createElement("Shape");               
+                // Узел Appearance
+                var app = document.createElement("Appearance");               
+                    // Узел Material
+                    var mat = document.createElement("Material");                
+                app.appendChild(mat);               
+                // Узел ImageTexture
+                var img = document.createElement("ImageTexture");
+                img.setAttribute("url", "wood.png");
+                app.appendChild(img);  // Помещаем ImageTexture в Appearance             
+                sh.appendChild(app);   // Помещаем Appearance в Shape             
+        tr.appendChild(sh);            // Помещаем Shape в Transform
+        // Создаем куб
+        var bx = document.createElement("Box");
+        bx.setAttribute("size", "1 1 1");
+        bx.setAttribute("id", "woodBlock");
+        sh.appendChild(bx);            // Помещаем Box в Shape
+        
+        var sc = document.getElementById('root');
+        sc.appendChild(tr);            // Помещаем Transform в сцену
+        
+        return false;
+    }
+    
+    // Создание блока Cobblestone
+    function addCobble()
+    {   
+        var tr = document.createElement("Transform");
+        tr.setAttribute("translation", "0 0 0");
+        newid = "cobbleTrans" + ids.cobbleIdNum;
+        tr.setAttribute("id", newid);
+        tr.setAttribute("onclick", "setID(id)");
+        ids.cobbleIdNum++;
+        curid = newid;
+        vec.str = "0 0 0";   
+        var sh = document.createElement("Shape");               
+                // Узел Appearance
+                var app = document.createElement("Appearance");               
+                    // Узел Material
+                    var mat = document.createElement("Material");                
+                app.appendChild(mat);               
+                // Узел ImageTexture
+                var img = document.createElement("ImageTexture");
+                img.setAttribute("url", "cobblestone.png");
+                app.appendChild(img);  // Помещаем ImageTexture в Appearance                
+                sh.appendChild(app);   // Помещаем Appearance в Shape             
+        tr.appendChild(sh);            // Помещаем Shape в Transform
+        // Создаем куб
+        var bx = document.createElement("Box");
+        bx.setAttribute("size", "1 1 1");
+        bx.setAttribute("id", "cobbleBlock");
+        sh.appendChild(bx);            // Помещаем Box в Shape
+        
+        var sc = document.getElementById('root');
+        sc.appendChild(tr);            // Помещаем Transform в сцену
+        
+        return false;
+    }
+    
+    // Создание блока Glass
+    function addGlass()
+    {   
+        var tr = document.createElement("Transform");
+        tr.setAttribute("translation", "0 0 0");
+        newid = "glassTrans" + ids.glassIdNum;
+        tr.setAttribute("id", newid);
+        tr.setAttribute("onclick", "setID(id)");
+        ids.glassIdNum++;
+        curid = newid;
+        vec.str = "0 0 0";   
+        var sh = document.createElement("Shape");               
+                // Узел Appearance
+                var app = document.createElement("Appearance");               
+                    // Узел Material
+                    var mat = document.createElement("Material");                
+                app.appendChild(mat);               
+                // Узел ImageTexture
+                var img = document.createElement("ImageTexture");
+                img.setAttribute("url", "glass.png");
+                app.appendChild(img);  // Помещаем ImageTexture в Appearance                
+                sh.appendChild(app);   // Помещаем Appearance в Shape             
+        tr.appendChild(sh);            // Помещаем Shape в Transform
+        // Создаем куб
+        var bx = document.createElement("Box");
+        bx.setAttribute("size", "1 1 1");
+        bx.setAttribute("id", "glassBlock");
+        sh.appendChild(bx);            // Помещаем Box в Shape
+        
+        var sc = document.getElementById('root');
+        sc.appendChild(tr);            // Помещаем Transform в сцену
+        
+        return false;
+    }
+    
+    // Создание блока Dirt
+    function addDirt()
+    {   
+        var tr = document.createElement("Transform");
+        tr.setAttribute("translation", "0 0 0");
+        newid = "dirtTrans" + ids.dirtIdNum;
+        tr.setAttribute("id", newid);
+        tr.setAttribute("onclick", "setID(id)");
+        ids.dirtIdNum++;
+        curid = newid;
+        vec.str = "0 0 0";   
+        var sh = document.createElement("Shape");               
+                // Узел Appearance
+                var app = document.createElement("Appearance");               
+                    // Узел Material
+                    var mat = document.createElement("Material");                
+                app.appendChild(mat);               
+                // Узел ImageTexture
+                var img = document.createElement("ImageTexture");
+                img.setAttribute("url", "dirt.png");
+                app.appendChild(img);  // Помещаем ImageTexture в Appearance                
+                sh.appendChild(app);   // Помещаем Appearance в Shape             
+        tr.appendChild(sh);            // Помещаем Shape в Transform
+        // Создаем куб
+        var bx = document.createElement("Box");
+        bx.setAttribute("size", "1 1 1");
+        bx.setAttribute("id", "dirtBlock");
+        sh.appendChild(bx);            // Помещаем Box в Shape
+        
+        var sc = document.getElementById('root');
+        sc.appendChild(tr);            // Помещаем Transform в сцену
+        
+        return false;
+    }
+    
+    // Создание блока Brick
+    function addBrick()
+    {   
+        var tr = document.createElement("Transform");
+        tr.setAttribute("translation", "0 0 0");
+        newid = "brickTrans" + ids.brickIdNum;
+        tr.setAttribute("id", newid);
+        tr.setAttribute("onclick", "setID(id)");
+        ids.brickIdNum++;
+        curid = newid;
+        vec.str = "0 0 0";   
+        var sh = document.createElement("Shape");               
+                // Узел Appearance
+                var app = document.createElement("Appearance");               
+                    // Узел Material
+                    var mat = document.createElement("Material");                
+                app.appendChild(mat);               
+                // Узел ImageTexture
+                var img = document.createElement("ImageTexture");
+                img.setAttribute("url", "brick.png");
+                app.appendChild(img);  // Помещаем ImageTexture в Appearance                
+                sh.appendChild(app);   // Помещаем Appearance в Shape             
+        tr.appendChild(sh);            // Помещаем Shape в Transform
+        // Создаем куб
+        var bx = document.createElement("Box");
+        bx.setAttribute("size", "1 1 1");
+        bx.setAttribute("id", "brickBlock");
+        sh.appendChild(bx);            // Помещаем Box в Shape
+        
+        var sc = document.getElementById('root');
+        sc.appendChild(tr);            // Помещаем Transform в сцену
+        
+        return false;
+    }
+    
+    // Создание блока Hellrock
+    function addHellrock()
+    {   
+        var tr = document.createElement("Transform");
+        tr.setAttribute("translation", "0 0 0");
+        newid = "hellrockTrans" + ids.hellrockIdNum;
+        tr.setAttribute("id", newid);
+        tr.setAttribute("onclick", "setID(id)");
+        ids.hellrockIdNum++;
+        curid = newid;
+        vec.str = "0 0 0";   
+        var sh = document.createElement("Shape");               
+                // Узел Appearance
+                var app = document.createElement("Appearance");               
+                    // Узел Material
+                    var mat = document.createElement("Material");                
+                app.appendChild(mat);               
+                // Узел ImageTexture
+                var img = document.createElement("ImageTexture");
+                img.setAttribute("url", "hellrock.png");
+                app.appendChild(img);  // Помещаем ImageTexture в Appearance                
+                sh.appendChild(app);   // Помещаем Appearance в Shape             
+        tr.appendChild(sh);            // Помещаем Shape в Transform
+        // Создаем куб
+        var bx = document.createElement("Box");
+        bx.setAttribute("size", "1 1 1");
+        bx.setAttribute("id", "hellrockBlock");
+        sh.appendChild(bx);            // Помещаем Box в Shape
+        
+        var sc = document.getElementById('root');
+        sc.appendChild(tr);            // Помещаем Transform в сцену
+        
+        return false;
+    }
+    
+    // Создание блока Gravel
+    function addGravel()
+    {   
+        var tr = document.createElement("Transform");
+        tr.setAttribute("translation", "0 0 0");
+        newid = "gravelTrans" + ids.gravelIdNum;
+        tr.setAttribute("id", newid);
+        tr.setAttribute("onclick", "setID(id)");
+        ids.gravelIdNum++;
+        curid = newid;
+        vec.str = "0 0 0";   
+        var sh = document.createElement("Shape");               
+                // Узел Appearance
+                var app = document.createElement("Appearance");               
+                    // Узел Material
+                    var mat = document.createElement("Material");                
+                app.appendChild(mat);               
+                // Узел ImageTexture
+                var img = document.createElement("ImageTexture");
+                img.setAttribute("url", "gravel.png");
+                app.appendChild(img);  // Помещаем ImageTexture в Appearance                
+                sh.appendChild(app);   // Помещаем Appearance в Shape             
+        tr.appendChild(sh);            // Помещаем Shape в Transform
+        // Создаем куб
+        var bx = document.createElement("Box");
+        bx.setAttribute("size", "1 1 1");
+        bx.setAttribute("id", "gravelBlock");
+        sh.appendChild(bx);            // Помещаем Box в Shape
+        
+        var sc = document.getElementById('root');
+        sc.appendChild(tr);            // Помещаем Transform в сцену
+        
+        return false;
+    }
+    
+    // Создание блока Obsidian
+    function addObsidian()
+    {   
+        var tr = document.createElement("Transform");
+        tr.setAttribute("translation", "0 0 0");
+        newid = "obsidianTrans" + ids.obsidianIdNum;
+        tr.setAttribute("id", newid);
+        tr.setAttribute("onclick", "setID(id)");
+        ids.obsidianIdNum++;
+        curid = newid;
+        vec.str = "0 0 0";   
+        var sh = document.createElement("Shape");               
+                // Узел Appearance
+                var app = document.createElement("Appearance");               
+                    // Узел Material
+                    var mat = document.createElement("Material");                
+                app.appendChild(mat);               
+                // Узел ImageTexture
+                var img = document.createElement("ImageTexture");
+                img.setAttribute("url", "obsidian.png");
+                app.appendChild(img);  // Помещаем ImageTexture в Appearance                
+                sh.appendChild(app);   // Помещаем Appearance в Shape             
+        tr.appendChild(sh);            // Помещаем Shape в Transform
+        // Создаем куб
+        var bx = document.createElement("Box");
+        bx.setAttribute("size", "1 1 1");
+        bx.setAttribute("id", "obsidianBlock");
+        sh.appendChild(bx);            // Помещаем Box в Shape
+        
+        var sc = document.getElementById('root');
+        sc.appendChild(tr);            // Помещаем Transform в сцену
+        
+        return false;
+    }
+    
+    // Создание блока Endstone
+    function addEndstone()
+    {   
+        var tr = document.createElement("Transform");
+        tr.setAttribute("translation", "0 0 0");
+        newid = "endstoneTrans" + ids.endstoneIdNum;
+        tr.setAttribute("id", newid);
+        tr.setAttribute("onclick", "setID(id)");
+        ids.endstoneIdNum++;
+        curid = newid;
+        vec.str = "0 0 0";   
+        var sh = document.createElement("Shape");               
+                // Узел Appearance
+                var app = document.createElement("Appearance");               
+                    // Узел Material
+                    var mat = document.createElement("Material");                
+                app.appendChild(mat);               
+                // Узел ImageTexture
+                var img = document.createElement("ImageTexture");
+                img.setAttribute("url", "endstone.png");
+                app.appendChild(img);  // Помещаем ImageTexture в Appearance                
+                sh.appendChild(app);   // Помещаем Appearance в Shape             
+        tr.appendChild(sh);            // Помещаем Shape в Transform
+        // Создаем куб
+        var bx = document.createElement("Box");
+        bx.setAttribute("size", "1 1 1");
+        bx.setAttribute("id", "endstoneBlock");
+        sh.appendChild(bx);            // Помещаем Box в Shape
+        
+        var sc = document.getElementById('root');
+        sc.appendChild(tr);            // Помещаем Transform в сцену
+        
+        return false;
+    }
+    
+    // Блоки шерсти
+    // Коричневая
+    function addBrownWool()
+    {   
+        var tr = document.createElement("Transform");
+        tr.setAttribute("translation", "0 0 0");
+        newid = "brownWoolTrans" + ids.brownWoolIdNum;
+        tr.setAttribute("id", newid);
+        tr.setAttribute("onclick", "setID(id)");
+        ids.brownWoolIdNum++;
+        curid = newid;
+        vec.str = "0 0 0";   
+        var sh = document.createElement("Shape");               
+                // Узел Appearance
+                var app = document.createElement("Appearance");               
+                    // Узел Material
+                    var mat = document.createElement("Material");                
+                app.appendChild(mat);               
+                // Узел ImageTexture
+                var img = document.createElement("ImageTexture");
+                img.setAttribute("url", "wool_brown.png");
+                app.appendChild(img);  // Помещаем ImageTexture в Appearance                
+                sh.appendChild(app);   // Помещаем Appearance в Shape             
+        tr.appendChild(sh);            // Помещаем Shape в Transform
+        // Создаем куб
+        var bx = document.createElement("Box");
+        bx.setAttribute("size", "1 1 1");
+        bx.setAttribute("id", "brownWoolBlock");
+        sh.appendChild(bx);            // Помещаем Box в Shape
+        
+        var sc = document.getElementById('root');
+        sc.appendChild(tr);            // Помещаем Transform в сцену
+        
+        return false;
+    }
+    
+    // Красная
+    function addRedWool()
+    {   
+        var tr = document.createElement("Transform");
+        tr.setAttribute("translation", "0 0 0");
+        newid = "redWoolTrans" + ids.redWoolIdNum;
+        tr.setAttribute("id", newid);
+        tr.setAttribute("onclick", "setID(id)");
+        ids.redWoolIdNum++;
+        curid = newid;
+        vec.str = "0 0 0";   
+        var sh = document.createElement("Shape");               
+                // Узел Appearance
+                var app = document.createElement("Appearance");               
+                    // Узел Material
+                    var mat = document.createElement("Material");                
+                app.appendChild(mat);               
+                // Узел ImageTexture
+                var img = document.createElement("ImageTexture");
+                img.setAttribute("url", "wool_red.png");
+                app.appendChild(img);  // Помещаем ImageTexture в Appearance                
+                sh.appendChild(app);   // Помещаем Appearance в Shape             
+        tr.appendChild(sh);            // Помещаем Shape в Transform
+        // Создаем куб
+        var bx = document.createElement("Box");
+        bx.setAttribute("size", "1 1 1");
+        bx.setAttribute("id", "redWoolBlock");
+        sh.appendChild(bx);            // Помещаем Box в Shape
+        
+        var sc = document.getElementById('root');
+        sc.appendChild(tr);            // Помещаем Transform в сцену
+        
+        return false;
+    }
+    
+    // Зеленая
+    function addGreenWool()
+    {   
+        var tr = document.createElement("Transform");
+        tr.setAttribute("translation", "0 0 0");
+        newid = "greenWoolTrans" + ids.greenWoolIdNum;
+        tr.setAttribute("id", newid);
+        tr.setAttribute("onclick", "setID(id)");
+        ids.greenWoolIdNum++;
+        curid = newid;
+        vec.str = "0 0 0";   
+        var sh = document.createElement("Shape");               
+                // Узел Appearance
+                var app = document.createElement("Appearance");               
+                    // Узел Material
+                    var mat = document.createElement("Material");                
+                app.appendChild(mat);               
+                // Узел ImageTexture
+                var img = document.createElement("ImageTexture");
+                img.setAttribute("url", "wool_green.png");
+                app.appendChild(img);  // Помещаем ImageTexture в Appearance                
+                sh.appendChild(app);   // Помещаем Appearance в Shape             
+        tr.appendChild(sh);            // Помещаем Shape в Transform
+        // Создаем куб
+        var bx = document.createElement("Box");
+        bx.setAttribute("size", "1 1 1");
+        bx.setAttribute("id", "greenWoolBlock");
+        sh.appendChild(bx);            // Помещаем Box в Shape
+        
+        var sc = document.getElementById('root');
+        sc.appendChild(tr);            // Помещаем Transform в сцену
+        
+        return false;
+    }
+    
+    // Темно-зеленая
+    function addDarkGreenWool()
+    {   
+        var tr = document.createElement("Transform");
+        tr.setAttribute("translation", "0 0 0");
+        newid = "darkGreenWoolTrans" + ids.darkGreenWoolIdNum;
+        tr.setAttribute("id", newid);
+        tr.setAttribute("onclick", "setID(id)");
+        ids.darkGreenWoolIdNum++;
+        curid = newid;
+        vec.str = "0 0 0";   
+        var sh = document.createElement("Shape");               
+                // Узел Appearance
+                var app = document.createElement("Appearance");               
+                    // Узел Material
+                    var mat = document.createElement("Material");                
+                app.appendChild(mat);               
+                // Узел ImageTexture
+                var img = document.createElement("ImageTexture");
+                img.setAttribute("url", "wool_dark_green.png");
+                app.appendChild(img);  // Помещаем ImageTexture в Appearance                
+                sh.appendChild(app);   // Помещаем Appearance в Shape             
+        tr.appendChild(sh);            // Помещаем Shape в Transform
+        // Создаем куб
+        var bx = document.createElement("Box");
+        bx.setAttribute("size", "1 1 1");
+        bx.setAttribute("id", "darkGreenWoolBlock");
+        sh.appendChild(bx);            // Помещаем Box в Shape
+        
+        var sc = document.getElementById('root');
+        sc.appendChild(tr);            // Помещаем Transform в сцену
+        
+        return false;
+    }
+    
+    // Бирюзовая
+    function addCyanWool()
+    {   
+        var tr = document.createElement("Transform");
+        tr.setAttribute("translation", "0 0 0");
+        newid = "cyanWoolTrans" + ids.cyanWoolIdNum;
+        tr.setAttribute("id", newid);
+        tr.setAttribute("onclick", "setID(id)");
+        ids.cyanWoolIdNum++;
+        curid = newid;
+        vec.str = "0 0 0";   
+        var sh = document.createElement("Shape");               
+                // Узел Appearance
+                var app = document.createElement("Appearance");               
+                    // Узел Material
+                    var mat = document.createElement("Material");                
+                app.appendChild(mat);               
+                // Узел ImageTexture
+                var img = document.createElement("ImageTexture");
+                img.setAttribute("url", "wool_cyan.png");
+                app.appendChild(img);  // Помещаем ImageTexture в Appearance                
+                sh.appendChild(app);   // Помещаем Appearance в Shape             
+        tr.appendChild(sh);            // Помещаем Shape в Transform
+        // Создаем куб
+        var bx = document.createElement("Box");
+        bx.setAttribute("size", "1 1 1");
+        bx.setAttribute("id", "cyanWoolBlock");
+        sh.appendChild(bx);            // Помещаем Box в Shape
+        
+        var sc = document.getElementById('root');
+        sc.appendChild(tr);            // Помещаем Transform в сцену
+        
+        return false;
+    }
+    
+    // Синяя
+    function addBlueWool()
+    {   
+        var tr = document.createElement("Transform");
+        tr.setAttribute("translation", "0 0 0");
+        newid = "blueWoolTrans" + ids.blueWoolIdNum;
+        tr.setAttribute("id", newid);
+        tr.setAttribute("onclick", "setID(id)");
+        ids.blueWoolIdNum++;
+        curid = newid;
+        vec.str = "0 0 0";   
+        var sh = document.createElement("Shape");               
+                // Узел Appearance
+                var app = document.createElement("Appearance");               
+                    // Узел Material
+                    var mat = document.createElement("Material");                
+                app.appendChild(mat);               
+                // Узел ImageTexture
+                var img = document.createElement("ImageTexture");
+                img.setAttribute("url", "wool_blue.png");
+                app.appendChild(img);  // Помещаем ImageTexture в Appearance                
+                sh.appendChild(app);   // Помещаем Appearance в Shape             
+        tr.appendChild(sh);            // Помещаем Shape в Transform
+        // Создаем куб
+        var bx = document.createElement("Box");
+        bx.setAttribute("size", "1 1 1");
+        bx.setAttribute("id", "blueWoolBlock");
+        sh.appendChild(bx);            // Помещаем Box в Shape
+        
+        var sc = document.getElementById('root');
+        sc.appendChild(tr);            // Помещаем Transform в сцену
+        
+        return false;
+    }
+    
+    // Оранжевая
+    function addOrangeWool()
+    {   
+        var tr = document.createElement("Transform");
+        tr.setAttribute("translation", "0 0 0");
+        newid = "orangeWoolTrans" + ids.orangeWoolIdNum;
+        tr.setAttribute("id", newid);
+        tr.setAttribute("onclick", "setID(id)");
+        ids.orangeWoolIdNum++;
+        curid = newid;
+        vec.str = "0 0 0";   
+        var sh = document.createElement("Shape");               
+                // Узел Appearance
+                var app = document.createElement("Appearance");               
+                    // Узел Material
+                    var mat = document.createElement("Material");                
+                app.appendChild(mat);               
+                // Узел ImageTexture
+                var img = document.createElement("ImageTexture");
+                img.setAttribute("url", "wool_orange.png");
+                app.appendChild(img);  // Помещаем ImageTexture в Appearance                
+                sh.appendChild(app);   // Помещаем Appearance в Shape             
+        tr.appendChild(sh);            // Помещаем Shape в Transform
+        // Создаем куб
+        var bx = document.createElement("Box");
+        bx.setAttribute("size", "1 1 1");
+        bx.setAttribute("id", "orangeWoolBlock");
+        sh.appendChild(bx);            // Помещаем Box в Shape
+        
+        var sc = document.getElementById('root');
+        sc.appendChild(tr);            // Помещаем Transform в сцену
+        
+        return false;
+    }
+    
+    // Желтая
+    function addYellowWool()
+    {   
+        var tr = document.createElement("Transform");
+        tr.setAttribute("translation", "0 0 0");
+        newid = "yellowWoolTrans" + ids.yellowWoolIdNum;
+        tr.setAttribute("id", newid);
+        tr.setAttribute("onclick", "setID(id)");
+        ids.yellowWoolIdNum++;
+        curid = newid;
+        vec.str = "0 0 0";   
+        var sh = document.createElement("Shape");               
+                // Узел Appearance
+                var app = document.createElement("Appearance");               
+                    // Узел Material
+                    var mat = document.createElement("Material");                
+                app.appendChild(mat);               
+                // Узел ImageTexture
+                var img = document.createElement("ImageTexture");
+                img.setAttribute("url", "wool_yellow.png");
+                app.appendChild(img);  // Помещаем ImageTexture в Appearance                
+                sh.appendChild(app);   // Помещаем Appearance в Shape             
+        tr.appendChild(sh);            // Помещаем Shape в Transform
+        // Создаем куб
+        var bx = document.createElement("Box");
+        bx.setAttribute("size", "1 1 1");
+        bx.setAttribute("id", "yellowWoolBlock");
+        sh.appendChild(bx);            // Помещаем Box в Shape
+        
+        var sc = document.getElementById('root');
+        sc.appendChild(tr);            // Помещаем Transform в сцену
+        
+        return false;
+    }
+    
+    // Розовая
+    function addPinkWool()
+    {   
+        var tr = document.createElement("Transform");
+        tr.setAttribute("translation", "0 0 0");
+        newid = "pinkWoolTrans" + ids.pinkWoolIdNum;
+        tr.setAttribute("id", newid);
+        tr.setAttribute("onclick", "setID(id)");
+        ids.pinkWoolIdNum++;
+        curid = newid;
+        vec.str = "0 0 0";   
+        var sh = document.createElement("Shape");               
+                // Узел Appearance
+                var app = document.createElement("Appearance");               
+                    // Узел Material
+                    var mat = document.createElement("Material");                
+                app.appendChild(mat);               
+                // Узел ImageTexture
+                var img = document.createElement("ImageTexture");
+                img.setAttribute("url", "wool_pink.png");
+                app.appendChild(img);  // Помещаем ImageTexture в Appearance                
+                sh.appendChild(app);   // Помещаем Appearance в Shape             
+        tr.appendChild(sh);            // Помещаем Shape в Transform
+        // Создаем куб
+        var bx = document.createElement("Box");
+        bx.setAttribute("size", "1 1 1");
+        bx.setAttribute("id", "pinkWoolBlock");
+        sh.appendChild(bx);            // Помещаем Box в Shape
+        
+        var sc = document.getElementById('root');
+        sc.appendChild(tr);            // Помещаем Transform в сцену
+        
+        return false;
+    }
+    
+    // Темно-синяя
+    function addDarkBlueWool()
+    {   
+        var tr = document.createElement("Transform");
+        tr.setAttribute("translation", "0 0 0");
+        newid = "darkBlueWoolTrans" + ids.darkBlueWoolIdNum;
+        tr.setAttribute("id", newid);
+        tr.setAttribute("onclick", "setID(id)");
+        ids.darkBlueWoolIdNum++;
+        curid = newid;
+        vec.str = "0 0 0";   
+        var sh = document.createElement("Shape");               
+                // Узел Appearance
+                var app = document.createElement("Appearance");               
+                    // Узел Material
+                    var mat = document.createElement("Material");                
+                app.appendChild(mat);               
+                // Узел ImageTexture
+                var img = document.createElement("ImageTexture");
+                img.setAttribute("url", "wool_dark_blue.png");
+                app.appendChild(img);  // Помещаем ImageTexture в Appearance                
+                sh.appendChild(app);   // Помещаем Appearance в Shape             
+        tr.appendChild(sh);            // Помещаем Shape в Transform
+        // Создаем куб
+        var bx = document.createElement("Box");
+        bx.setAttribute("size", "1 1 1");
+        bx.setAttribute("id", "darkBlueWoolBlock");
+        sh.appendChild(bx);            // Помещаем Box в Shape
+        
+        var sc = document.getElementById('root');
+        sc.appendChild(tr);            // Помещаем Transform в сцену
+        
+        return false;
+    }
+    
+    // Сиреневая
+    function addLilacWool()
+    {   
+        var tr = document.createElement("Transform");
+        tr.setAttribute("translation", "0 0 0");
+        newid = "lilacWoolTrans" + ids.lilacWoolIdNum;
+        tr.setAttribute("id", newid);
+        tr.setAttribute("onclick", "setID(id)");
+        ids.lilacWoolIdNum++;
+        curid = newid;
+        vec.str = "0 0 0";   
+        var sh = document.createElement("Shape");               
+                // Узел Appearance
+                var app = document.createElement("Appearance");               
+                    // Узел Material
+                    var mat = document.createElement("Material");                
+                app.appendChild(mat);               
+                // Узел ImageTexture
+                var img = document.createElement("ImageTexture");
+                img.setAttribute("url", "wool_lilac.png");
+                app.appendChild(img);  // Помещаем ImageTexture в Appearance                
+                sh.appendChild(app);   // Помещаем Appearance в Shape             
+        tr.appendChild(sh);            // Помещаем Shape в Transform
+        // Создаем куб
+        var bx = document.createElement("Box");
+        bx.setAttribute("size", "1 1 1");
+        bx.setAttribute("id", "lilacWoolBlock");
+        sh.appendChild(bx);            // Помещаем Box в Shape
+        
+        var sc = document.getElementById('root');
+        sc.appendChild(tr);            // Помещаем Transform в сцену
+        
+        return false;
+    }
+    
+    // Фиолетовая
+    function addVioletWool()
+    {   
+        var tr = document.createElement("Transform");
+        tr.setAttribute("translation", "0 0 0");
+        newid = "violetWoolTrans" + ids.violetWoolIdNum;
+        tr.setAttribute("id", newid);
+        tr.setAttribute("onclick", "setID(id)");
+        ids.violetWoolIdNum++;
+        curid = newid;
+        vec.str = "0 0 0";   
+        var sh = document.createElement("Shape");               
+                // Узел Appearance
+                var app = document.createElement("Appearance");               
+                    // Узел Material
+                    var mat = document.createElement("Material");                
+                app.appendChild(mat);               
+                // Узел ImageTexture
+                var img = document.createElement("ImageTexture");
+                img.setAttribute("url", "wool_violet.png");
+                app.appendChild(img);  // Помещаем ImageTexture в Appearance                
+                sh.appendChild(app);   // Помещаем Appearance в Shape             
+        tr.appendChild(sh);            // Помещаем Shape в Transform
+        // Создаем куб
+        var bx = document.createElement("Box");
+        bx.setAttribute("size", "1 1 1");
+        bx.setAttribute("id", "violetWoolBlock");
+        sh.appendChild(bx);            // Помещаем Box в Shape
+        
+        var sc = document.getElementById('root');
+        sc.appendChild(tr);            // Помещаем Transform в сцену
+        
+        return false;
+    }
+    
+    // Белая
+    function addWhiteWool()
+    {   
+        var tr = document.createElement("Transform");
+        tr.setAttribute("translation", "0 0 0");
+        newid = "whiteWoolTrans" + ids.whiteWoolIdNum;
+        tr.setAttribute("id", newid);
+        tr.setAttribute("onclick", "setID(id)");
+        ids.whiteWoolIdNum++;
+        curid = newid;
+        vec.str = "0 0 0";   
+        var sh = document.createElement("Shape");               
+                // Узел Appearance
+                var app = document.createElement("Appearance");               
+                    // Узел Material
+                    var mat = document.createElement("Material");                
+                app.appendChild(mat);               
+                // Узел ImageTexture
+                var img = document.createElement("ImageTexture");
+                img.setAttribute("url", "wool_white.png");
+                app.appendChild(img);  // Помещаем ImageTexture в Appearance                
+                sh.appendChild(app);   // Помещаем Appearance в Shape             
+        tr.appendChild(sh);            // Помещаем Shape в Transform
+        // Создаем куб
+        var bx = document.createElement("Box");
+        bx.setAttribute("size", "1 1 1");
+        bx.setAttribute("id", "whiteWoolBlock");
+        sh.appendChild(bx);            // Помещаем Box в Shape
+        
+        var sc = document.getElementById('root');
+        sc.appendChild(tr);            // Помещаем Transform в сцену
+        
+        return false;
+    }
+    
+    // Серая
+    function addGrayWool()
+    {   
+        var tr = document.createElement("Transform");
+        tr.setAttribute("translation", "0 0 0");
+        newid = "grayWoolTrans" + ids.grayWoolIdNum;
+        tr.setAttribute("id", newid);
+        tr.setAttribute("onclick", "setID(id)");
+        ids.grayWoolIdNum++;
+        curid = newid;
+        vec.str = "0 0 0";   
+        var sh = document.createElement("Shape");               
+                // Узел Appearance
+                var app = document.createElement("Appearance");               
+                    // Узел Material
+                    var mat = document.createElement("Material");                
+                app.appendChild(mat);               
+                // Узел ImageTexture
+                var img = document.createElement("ImageTexture");
+                img.setAttribute("url", "wool_gray.png");
+                app.appendChild(img);  // Помещаем ImageTexture в Appearance                
+                sh.appendChild(app);   // Помещаем Appearance в Shape             
+        tr.appendChild(sh);            // Помещаем Shape в Transform
+        // Создаем куб
+        var bx = document.createElement("Box");
+        bx.setAttribute("size", "1 1 1");
+        bx.setAttribute("id", "grayWoolBlock");
+        sh.appendChild(bx);            // Помещаем Box в Shape
+        
+        var sc = document.getElementById('root');
+        sc.appendChild(tr);            // Помещаем Transform в сцену
+        
+        return false;
+    }
+    
+    // Темно-серая
+    function addDarkGrayWool()
+    {   
+        var tr = document.createElement("Transform");
+        tr.setAttribute("translation", "0 0 0");
+        newid = "darkGrayWoolTrans" + ids.darkGrayWoolIdNum;
+        tr.setAttribute("id", newid);
+        tr.setAttribute("onclick", "setID(id)");
+        ids.darkGrayWoolIdNum++;
+        curid = newid;
+        vec.str = "0 0 0";   
+        var sh = document.createElement("Shape");               
+                // Узел Appearance
+                var app = document.createElement("Appearance");               
+                    // Узел Material
+                    var mat = document.createElement("Material");                
+                app.appendChild(mat);               
+                // Узел ImageTexture
+                var img = document.createElement("ImageTexture");
+                img.setAttribute("url", "wool_dark_gray.png");
+                app.appendChild(img);  // Помещаем ImageTexture в Appearance                
+                sh.appendChild(app);   // Помещаем Appearance в Shape             
+        tr.appendChild(sh);            // Помещаем Shape в Transform
+        // Создаем куб
+        var bx = document.createElement("Box");
+        bx.setAttribute("size", "1 1 1");
+        bx.setAttribute("id", "darkGrayWoolBlock");
+        sh.appendChild(bx);            // Помещаем Box в Shape
+        
+        var sc = document.getElementById('root');
+        sc.appendChild(tr);            // Помещаем Transform в сцену
+        
+        return false;
+    }
+    
+    // Черная
+    function addBlackWool()
+    {   
+        var tr = document.createElement("Transform");
+        tr.setAttribute("translation", "0 0 0");
+        newid = "blackWoolTrans" + ids.blackWoolIdNum;
+        tr.setAttribute("id", newid);
+        tr.setAttribute("onclick", "setID(id)");
+        ids.blackWoolIdNum++;
+        curid = newid;
+        vec.str = "0 0 0";   
+        var sh = document.createElement("Shape");               
+                // Узел Appearance
+                var app = document.createElement("Appearance");               
+                    // Узел Material
+                    var mat = document.createElement("Material");                
+                app.appendChild(mat);               
+                // Узел ImageTexture
+                var img = document.createElement("ImageTexture");
+                img.setAttribute("url", "wool_black.png");
+                app.appendChild(img);  // Помещаем ImageTexture в Appearance                
+                sh.appendChild(app);   // Помещаем Appearance в Shape             
+        tr.appendChild(sh);            // Помещаем Shape в Transform
+        // Создаем куб
+        var bx = document.createElement("Box");
+        bx.setAttribute("size", "1 1 1");
+        bx.setAttribute("id", "blackWoolBlock");
+        sh.appendChild(bx);            // Помещаем Box в Shape
+        
+        var sc = document.getElementById('root');
+        sc.appendChild(tr);            // Помещаем Transform в сцену
+        
+        return false;
+    }
+    // ---Шерсть закончилась---
+    
+    // Вставка дерева
+    function plantTree()
+    {   
+        var tr = document.createElement("Transform");
+        tr.setAttribute("translation", "0 0 0");
+        tr.setAttribute("rotation", "1 0 0 1.57");
+        newid = "treeGroupTrans" + ids.treeGroupIdNum;
+        tr.setAttribute("id", newid);
+        tr.setAttribute("onclick", "setID(id)");
+        ids.treeGroupIdNum++;
+        curid = newid;
+        vec.str = "0 0 0";
+        // Вставляем объект через inline
+        var inl = document.createElement("Inline");
+        inl.setAttribute("url", "tree.x3d");   
+        tr.appendChild(inl);           // Помещаем Inline в Transform
+                    
+        var sc = document.getElementById('root');
+        sc.appendChild(tr);            // Помещаем Transform в сцену
+        
+        return false;
+    }
+    
+    // Вставка кактуса
+    function plantCactus()
+    {   
+        var tr = document.createElement("Transform");
+        tr.setAttribute("translation", "0 0 0");
+        tr.setAttribute("rotation", "1 0 0 1.57");
+        newid = "cactusGroupTrans" + ids.cactusGroupIdNum;
+        tr.setAttribute("id", newid);
+        tr.setAttribute("onclick", "setID(id)");
+        ids.cactusGroupIdNum++;
+        curid = newid;
+        vec.str = "0 0 0";
+        // Вставляем объект через inline
+        var inl = document.createElement("Inline");
+        inl.setAttribute("url", "cactus.x3d");   
+        tr.appendChild(inl);           // Помещаем Inline в Transform
+                    
+        var sc = document.getElementById('root');
+        sc.appendChild(tr);            // Помещаем Transform в сцену
+        
+        return false;
+    }
+    
+    // Вставка блока Sandstone
+    function addSandstone()
+    {   
+        var tr = document.createElement("Transform");
+        tr.setAttribute("translation", "0 0 0");
+        tr.setAttribute("rotation", "1 0 0 1.57");
+        newid = "sandstoneTrans" + ids.sandstoneIdNum;
+        tr.setAttribute("id", newid);
+        tr.setAttribute("onclick", "setID(id)");
+        ids.sandstoneIdNum++;
+        curid = newid;
+        vec.str = "0 0 0";
+        // Вставляем объект через inline
+        var inl = document.createElement("Inline");
+        inl.setAttribute("url", "sandstone.x3d");   
+        tr.appendChild(inl);           // Помещаем Inline в Transform
+                    
+        var sc = document.getElementById('root');
+        sc.appendChild(tr);            // Помещаем Transform в сцену
+        
+        return false;
+    }
+    
+    // Какая кнопка нажата          
+    function checkKey(key)
+    {   
+      if (key == '38') 
+        vec.y++;  // Up arrow    
+      if (key == '40') 
+        vec.y--;  // Down arrow   
+      if (key == '37') 
+        vec.x--;  // Left arrow   
+      if (key == '39') 
+        vec.x++;  // Right arrow
+      if (key == '33')
+        vec.z++;  // PageUp
+      if (key == '34')
+        vec.z--;  // PageDown
+        
+      // Удаляем выбранный блок
+      if (key == '46'){  // Delete
+        var delNode = document.getElementById(curid)
+        delNode.parentNode.removeChild(delNode);
+      }
+     
+      var newx = parseInt(vec.str.split(" ")[0]) + vec.x; //Первый символ строки преобразуется в число
+      var newy = parseInt(vec.str.split(" ")[1]) + vec.y; //Второй символ строки преобразуется в число
+      var newz = parseInt(vec.str.split(" ")[2]) + vec.z; //Третий символ строки преобразуется в число
+      //alert(newx, newy, newz);
+      vec.str = (newx + " " + newy + " " + newz);
+      // Перемещаем объект на 1 
+      document.getElementById(curid).setAttribute("translation", vec.str);
+      //alert(vec.str);     
+      setZero();    // Обнуляем еще раз переменные для перемещения нового блока    
+    }
+    
+    //Изменение вида поверхности
+    function changePlaneSnow()
+    {
+      document.getElementById("textrans").setAttribute("scale", "30 30");
+      document.getElementById("main_plane_tex").setAttribute("url", "snow.png");
+    }
+    function changePlaneGrass()
+    {
+      document.getElementById("textrans").setAttribute("scale", "30 30");
+      document.getElementById("main_plane_tex").setAttribute("url", "grass_top.png");
+    }
+    function changePlaneSand()
+    {
+      document.getElementById("textrans").setAttribute("scale", "30 30");
+      document.getElementById("main_plane_tex").setAttribute("url", "sand.png");
+    }
+    function changePlaneHell()
+    {
+      document.getElementById("textrans").setAttribute("scale", "30 30");
+      document.getElementById("main_plane_tex").setAttribute("url", "hellrock.png");
+    }
+    function changePlaneWater()
+    {
+      document.getElementById("textrans").setAttribute("scale", "1 1");
+      document.getElementById("main_plane_tex").setAttribute("url", "water.png");
+    }
+    function changePlaneEnd()
+    {
+      document.getElementById("textrans").setAttribute("scale", "30 30");
+      document.getElementById("main_plane_tex").setAttribute("url", "endstone.png");
+    }
+   
+   </script>
+  </head>
+  <body onkeydown = "checkKey(event.keyCode)">
+    <div class="left" align="right">
+    <x3d x="0px" y="0px" width="100em" height="69em">
+       <Scene id="root">
+    <!-- <Background Transparency="0.5" SkyColor="0.15 0.25 0.6" GroundColor=" 0.15 0.65 0.2"></Background>  -->
+         <Viewpoint Position="0 -17 17" Orientation="1 0 0 0.65"></Viewpoint>           
+          <!--Плоскость-->
+          <Transform translation="0 0 -0.5">
+          <Shape id="main_plane">
+             <Appearance>
+                <Material></Material>
+                <ImageTexture id="main_plane_tex" url="grass_top.png">
+                </ImageTexture>
+                <TextureTransform id="textrans" scale="30 30"></TextureTransform>
+             </Appearance>
+             <Plane size="30 30"></Plane>       
+          </Shape>
+          </Transform>          
+       </Scene>
+    </x3d>
+    </div>
+
+    <!--Кнопки для создания блоков-->
+    <div class="back" align="center"><font size="5" face="Arial Narrow"><a href="./index.html">Back to title</a></font></div>
+    <p style="text-indent:170px" class="buttons2"><font size="5" face="Arial Narrow">Add Block:</font></p>
+    <p style="text-indent:10px" class="buttons1">
+      <input type="button" style="height: 3em; width: 9em" id="but_stone" value="Stone" onClick="addStone();"/>
+      <input type="button" style="height: 3em; width: 9em" id="but_dirt" value="Dirt" onClick="addDirt();"/>
+      <input type="button" style="height: 3em; width: 9em" id="but_brick" value="Brick" onClick="addBrick();"/><br>
+    </p>  
+    <p style="text-indent:10px" class="buttons1">  
+      <input type="button" style="height: 3em; width: 9em" id="but_wood" value="Wood" onClick="addWood();"/>
+      <input type="button" style="height: 3em; width: 9em" id="but_cobble" value="Cobblestone" onClick="addCobble();"/>
+      <input type="button" style="height: 3em; width: 9em" id="but_glass" value="Glass" onClick="addGlass();"/><br>     
+    </p>
+    <p style="text-indent:10px" class="buttons1">  
+      <input type="button" style="height: 3em; width: 9em" id="but_hellrock" value="Hellrock" onClick="addHellrock();"/>
+      <input type="button" style="height: 3em; width: 9em" id="but_sandstone" value="Sandstone" onClick="addSandstone();"/>
+      <input type="button" style="height: 3em; width: 9em" id="but_gravel" value="Gravel" onClick="addGravel();"/><br>    
+    </p>
+    <p style="text-indent:10px" class="buttons1">  
+      <input type="button" style="height: 3em; width: 9em" id="but_obsidian" value="Obsidian" onClick="addObsidian();"/>
+      <input type="button" style="height: 3em; width: 9em" id="but_endstone" value="Endstone" onClick="addEndstone();"/><br>
+           
+    </p>
+    <!--Деревья и кактусы-->
+    <p style="text-indent:90px" class="buttons3">
+      <input type="button" style="height: 3em; width: 9em" id="but_treeGroup" value="Plant Tree" onClick="plantTree();"/>
+      <input type="button" style="height: 3em; width: 9em" id="but_cactusGroup" value="Plant Cactus" onClick="plantCactus();"/><br>
+      <br>
+    </p>
+    <!--Земля--> 
+    <p style="text-indent:150px" class="buttons3"><font size="5" face="Arial Narrow">Ground Type:</font></p>
+    <p style="text-indent:120px">
+      <input type="button" style="height: 2em; width: 6em" id="but_plane_grass" value="Grass" onClick="changePlaneGrass();"/>
+      <input type="button" style="height: 2em; width: 6em" id="but_plane_hell" value="Hell" onClick="changePlaneHell();"/><br>
+    </p>
+    <p style="text-indent:120px">
+      <input type="button" style="height: 2em; width: 6em" id="but_plane_snow" value="Snow" onClick="changePlaneSnow();"/>
+      <input type="button" style="height: 2em; width: 6em" id="but_plane_water" value="Water" onClick="changePlaneWater();"/><br>
+    </p>
+    <p style="text-indent:120px" class="buttons3">
+      <input type="button" style="height: 2em; width: 6em" id="but_plane_sand" value="Sand" onClick="changePlaneSand();"/>
+      <input type="button" style="height: 2em; width: 6em" id="but_plane_end" value="End" onClick="changePlaneEnd();"/><br>
+    </p>
+    <!--Шерсть-->
+    <p style="text-indent:160px"><font size="5" face="Arial Narrow">Wool:</font></p>
+    <p style="text-indent:10px">
+      <input type="image" height="64px" width="64px" id="img_brownWool" src="wool_brown.png" alt="Brown Wool" onClick="addBrownWool();"/>
+      <input type="image" height="64px" width="64px" id="img_redWool" src="wool_red.png" alt="Red Wool" onClick="addRedWool();"/>
+      <input type="image" height="64px" width="64px" id="img_pinkWool" src="wool_pink.png" alt="Pink Wool" onClick="addPinkWool();"/>
+      <input type="image" height="64px" width="64px" id="img_orangeWool" src="wool_orange.png" alt="Orange Wool" onClick="addOrangeWool();"/>
+      <input type="image" height="64px" width="64px" id="img_yellowWool" src="wool_yellow.png" alt="Yellow Wool" onClick="addYellowWool();"/>
+      <input type="image" height="64px" width="64px" id="img_greenWool" src="wool_green.png" alt="Green Wool" onClick="addGreenWool();"/><br>
+    </p>
+    <p style="text-indent:10px">
+      <input type="image" height="64px" width="64px" id="img_darkGreenWool" src="wool_dark_green.png" alt="Dark Green Wool" onClick="addDarkGreenWool();"/>
+      <input type="image" height="64px" width="64px" id="img_blueWool" src="wool_blue.png" alt="Blue Wool" onClick="addBlueWool();"/>
+      <input type="image" height="64px" width="64px" id="img_cyanWool" src="wool_cyan.png" alt="Cyan Wool" onClick="addCyanWool();"/>
+      <input type="image" height="64px" width="64px" id="img_darkBlueWool" src="wool_dark_blue.png" alt="Dark Blue Wool" onClick="addDarkBlueWool();"/>
+      <input type="image" height="64px" width="64px" id="img_lilacWool" src="wool_lilac.png" alt="Lilac Wool" onClick="addLilacWool();"/>
+      <input type="image" height="64px" width="64px" id="img_violetWool" src="wool_violet.png" alt="Violet Wool" onClick="addVioletWool();"/><br>
+    </p>
+    <p style="text-indent:10px">
+      <input type="image" height="64px" width="64px" id="img_whiteWool" src="wool_white.png" alt="White Wool" onClick="addWhiteWool();"/>
+      <input type="image" height="64px" width="64px" id="img_grayWool" src="wool_gray.png" alt="Gray Wool" onClick="addGrayWool();"/>
+      <input type="image" height="64px" width="64px" id="img_darkGrayWool" src="wool_dark_gray.png" alt="Dark Gray Wool" onClick="addDarkGrayWool();"/>
+      <input type="image" height="64px" width="64px" id="img_blackWool" src="wool_black.png" alt="Black Wool" onClick="addBlackWool();"/><br>
+    </p>
+    <script type="text/javascript" src="http://www.x3dom.org/download/dev/x3dom.js"></script>       
+  </body>
+</html>
